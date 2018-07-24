@@ -24,6 +24,7 @@ sql = "SELECT datetime ,userlabel, pdcpupoctul, pdcpupoctdl FROM pm_eutrancelltd
 #sql = "SELECT * FROM resource_eutrancell WHERE date = '2018-06-24'"
 #sql = "SELECT date, dn, userlabel, A2ThresholdInterFcov, A4ThresholdInterFcov FROM nrm_eutrancelltdd WHERE date = '2018-04-09'"
 #sql = "SELECT * FROM irms_wireless_antenna WHERE date = '2018-06-25'"
+#sql = "SELECT * FROM irms_wireless_antenna WHERE date = '2018-06-26'"
 
 cursor.execute(sql)
 title = [i[0] for i in cursor.description]
