@@ -17,21 +17,22 @@ cursor = conn.cursor()
 #sql = "SELECT datetime ,userlabel, pdcpupoctul, pdcpupoctdl FROM pm_eutrancelltdd_hour WHERE datetime = '2018-06-13 18:00:00' or datetime = '2018-06-13 19:00:00' or datetime = '2018-06-13 20:00:00' or datetime = '2018-06-13 21:00:00' or datetime = '2018-06-13 22:00:00' or datetime = '2018-06-13 23:00:00'"
 #sql = "SELECT datetime ,userlabel, pdcpupoctul, pdcpupoctdl FROM pm_eutrancelltdd_hour WHERE datetime = '2018-06-14 00:00:00' or datetime = '2018-06-14 01:00:00' or datetime = '2018-06-14 02:00:00' or datetime = '2018-06-14 03:00:00'"
 #sql = "SELECT datetime ,userlabel, rrutotalprbusagemeanul, rrutotalprbusagemeandl, rrcsuccconnestab, rrcattconnestab, erabnbrsuccestab, erabnbrattestab FROM pm_eutrancelltdd_hour WHERE datetime = '2018-06-14 03:00:00'"
-sql = "SELECT datetime ,userlabel, pdcpupoctul, pdcpupoctdl FROM pm_eutrancelltdd_day WHERE datetime = '2018-07-22 00:00:00'"
+#sql = "SELECT datetime ,userlabel, pdcpupoctul, pdcpupoctdl FROM pm_eutrancelltdd_day WHERE datetime = '2018-07-22 00:00:00'"
 #sql = "SELECT datetime ,userlabel, pdcpupoctul, pdcpupoctdl FROM pm_eutrancelltdd_day WHERE datetime = '2018-07-20 00:00:00'"
 #sql = "SELECT dn, userlabel, pdcpupoctul, pdcpupoctdl, rrutotalprbusagemeanul, rrutotalprbusagemeandl FROM pm_eutrancelltdd_day WHERE datetime = '2018-07-17 00:00:00'"
 #sql = "SELECT datetime, avg(rrutotalprbusagemeanul) AS avg_rrutotalprbusagemeanul, avg(rrutotalprbusagemeandl) AS avg_rrutotalprbusagemeanul, avg(pdcpupoctul) AS avg_pdcpupoctul, avg(pdcpupoctdl) AS avg_pdcpupoctdl, avg(rrcconnmax) AS avg_rrcconnmax, avg(rrcconnmean) AS avg_rrcconnmean FROM pm_eutrancelltdd_day WHERE datetime BETWEEN '2018-07-01 00:00:00' AND '2018-07-18 00:00:00' GROUP BY datetime"
 #sql = "SELECT * FROM resource_eutrancell WHERE date = '2018-07-17'"
-#sql = "SELECT * FROM resource_eutrancell WHERE date = '2018-06-24'"
+sql = "SELECT nrm_eutrancelltdd.dn, userlabel, A2ThresholdInterFcov, A4ThresholdInterFcov FROM nrm_eutrancelltdd LEFT JOIN resource_eutrancell ON nrm_eutrancelltdd.dn = resource_eutrancell.dn * FROM  WHERE date = '2018-07-25'"
 #sql = "SELECT date, dn, userlabel, A2ThresholdInterFcov, A4ThresholdInterFcov FROM nrm_eutrancelltdd WHERE date = '2018-04-09'"
 #sql = "SELECT * FROM irms_wireless_antenna WHERE date = '2018-06-25'"
 #sql = "SELECT * FROM irms_wireless_antenna WHERE date = '2018-06-26'"
 #sql = "SELECT * FROM irms_wireless_antenna WHERE date = '2018-06-27'"
+#sql = "SELECT dn, userlabel, A2ThresholdInterFcov, A4ThresholdInterFcov FROM nrm_eutrancelltdd WHERE date = '2018-04-09'"
 cursor.execute(sql)
 title = [i[0] for i in cursor.description]
 data = cursor.fetchall()
 df = pd.DataFrame(data, columns = title)
-df.to_csv('pm_eutrancelltdd_day_0719.csv', index=True, header=True, encoding='gbk')
+df.to_csv('resource_eutrancell_0725.csv', index=True, header=True, encoding='gbk')
 #print (data)
 cursor.close()
 conn.close()
