@@ -27,12 +27,13 @@ cursor = conn.cursor()
 #sql = "SELECT * FROM irms_wireless_antenna WHERE date = '2018-06-25'"
 #sql = "SELECT * FROM irms_wireless_antenna WHERE date = '2018-06-26'"
 #sql = "SELECT * FROM irms_wireless_antenna WHERE date = '2018-06-27'"
-sql = "SELECT dn, userlabel, qrxlevmin, referencesignalpower FROM nrm_eutrancelltdd WHERE date = '2018-07-25'"
+#sql = "SELECT dn, userlabel, qrxlevmin, referencesignalpower FROM nrm_eutrancelltdd WHERE date = '2018-07-25'"
+sql = "SELECT n.dn,n.referencesignalpower,r.* FROM (SELECT dn,referencesignalpower FROM nrm_eutrancelltdd WHERE date = '2018-07-26') as n,(select * FROM resource_eutrancell WHERE date = '2018-07-26') as r WHERE n.dn = r.dn"
 cursor.execute(sql)
 title = [i[0] for i in cursor.description]
 data = cursor.fetchall()
 df = pd.DataFrame(data, columns = title)
-df.to_csv('nrm_eutrancelltdd_0725.csv', index=True, header=True, encoding='gbk')
+df.to_csv('nrm_eutrancelltdd_resource_eutrancell_0725.csv', index=True, header=True, encoding='gbk')
 #print (data)
 cursor.close()
 conn.close()
