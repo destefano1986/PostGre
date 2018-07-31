@@ -23,7 +23,7 @@ cursor = conn.cursor()
 #sql = "SELECT datetime, avg(rrutotalprbusagemeanul) AS avg_rrutotalprbusagemeanul, avg(rrutotalprbusagemeandl) AS avg_rrutotalprbusagemeanul, avg(pdcpupoctul) AS avg_pdcpupoctul, avg(pdcpupoctdl) AS avg_pdcpupoctdl, avg(rrcconnmax) AS avg_rrcconnmax, avg(rrcconnmean) AS avg_rrcconnmean FROM pm_eutrancelltdd_day WHERE datetime BETWEEN '2018-07-01 00:00:00' AND '2018-07-18 00:00:00' GROUP BY datetime"
 #sql = "SELECT * FROM resource_eutrancell WHERE date = '2018-07-25'"
 #sql = "SELECT n.dn,n.A2ThresholdInterFcov,n.A4ThresholdInterFcov,r.* FROM (SELECT dn,A2ThresholdInterFcov,A4ThresholdInterFcov FROM nrm_eutrancelltdd WHERE date = '2018-07-09') as n,(select * FROM resource_eutrancell WHERE date = '2018-07-09') as r WHERE n.dn = r.dn"
-sql = "SELECT date, dn, userlabel, referencesignalpower FROM nrm_eutrancelltdd WHERE date = '2018-07-26'"
+sql = "SELECT date, dn, userlabel, referencesignalpower FROM nrm_eutrancelltdd WHERE date = '2018-01-26'"
 #sql = "SELECT * FROM irms_wireless_antenna WHERE date = '2018-06-25'"
 #sql = "SELECT * FROM irms_wireless_antenna WHERE date = '2018-06-26'"
 #sql = "SELECT * FROM irms_wireless_antenna WHERE date = '2018-06-27'"
